@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #login-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 12px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        #password-container {
+            position: relative;
+        }
+
+        #show-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #3498db;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+            margin-top: 20px;
+            display: block;
+            font-size: 14px;
+        }
+
+        #welcome-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #welcome-message {
+            color: #4caf50;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        /* ... (Your existing CSS styles) ... */
+        .error-message {
+            color: #e74c3c;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+
+
+                body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #welcome-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        #welcome-message {
+            color: #4caf50;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #user-info {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        #navigate-button {
+            background-color: #3498db;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #color-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        #color-mode-toggle span {
+            margin-right: 5px;
+        }
+
+        /* Existing styles */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    transition: background-color 0.3s ease; /* Add transition for smoother mode change */
+}
+
+.dark-mode {
+    background-color: #2c3e50; /* Dark mode background color */
+    color: #ecf0f1; /* Dark mode text color */
+}
+
+/* Add dark mode styles for other elements as needed */
+
+
+    </style>
+</head>
+<body>
+    
+
+<div id="login-container">
+    <h2>Login</h2>
+    <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+
+        <div id="password-container">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <span id="show-password" onclick="togglePasswordVisibility()">Show</span>
+        </div>
+
+        <button type="button" onclick="login()">Login</button>
+        <div id="error-message" class="error-message"></div>
+    </form>
+    <a href="#" onclick="forgotPassword()">Forgot Password?</a>
+</div>
+    <div id="color-mode-toggle" onclick="toggleColorMode()">
+        <span>🌞</span><span>🌙</span>
+    </div>
+
+
+<div id="welcome-container">
+    <div id="welcome-message">Welcome to <br> Theory of Automata class</div>
+    <div id="user-info">
+        My Name: Naseebullah<br>
+        Roll No: 21bcs52
+    </div>
+    <button id="navigate-button" onclick="navigateToGamePage()">Compter Science</button>
+</div>
+
+
+<script>
+
+    function login() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var errorMessageElement = document.getElementById('error-message');
+
+        // Here you can add logic to validate the username and password
+        // For simplicity, let's assume the login is successful
+        if (username === 'Naseebullah' && password === 'abcdef') {
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('welcome-container').style.display = 'flex';
+            errorMessageElement.textContent = ''; // Clear any previous error message
+        } else {
+            errorMessageElement.textContent = 'Invalid username or password. Please try again.';
+        }
+    }
+
+    function forgotPassword() {
+        // Redirect to the forgot password page
+        alert('Redirecting to forgot password page.');
+        // window.location.href = 'forgot-password.html';
+    }
+
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById('password');
+        var showPasswordSpan = document.getElementById('show-password');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            showPasswordSpan.textContent = 'Hide';
+        } else {
+            passwordInput.type = 'password';
+            showPasswordSpan.textContent = 'Show';
+        }
+    }
+        function navigateToGamePage() {
+        // You can redirect to the game or animation page
+        alert('Redirecting to the game or animation page.');
+        // window.location.href = 'game.html';
+    }
+
+        function toggleColorMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+        }
+</script>
+
+</body>
+</html>
